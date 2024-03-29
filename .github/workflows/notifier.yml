@@ -12,7 +12,7 @@ jobs:
       - name: Check if issue body contains RFC reference
         id: check-rfc-reference
         run: |
-          ISSUE_BODY=$(echo "${{ github.event.issue.body }}" | sed 's/`/\\`/g')
+          ISSUE_BODY="$(echo "${{ github.event.issue.body }}" | sed 's/`/\\`/g')"
           ID_REGEX='#([0-9]+)'
           if [[ $ISSUE_BODY =~ $ID_REGEX ]]; then
             echo "ID found: ${BASH_REMATCH[1]}"
