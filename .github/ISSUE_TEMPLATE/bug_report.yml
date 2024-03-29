@@ -37,7 +37,6 @@ body:
     attributes:
       label: System Info
       description: Output of `npx envinfo --system --npmPackages '{vite,@remix-run/*}' --binaries --browsers`
-      render: shell
       placeholder: System, Binaries, Browsers
     validations:
       required: true
