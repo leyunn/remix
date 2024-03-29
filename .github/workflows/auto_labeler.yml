@@ -25,8 +25,8 @@ jobs:
           ISSUE_NUMBER=${{ github.event.issue.number }}
           TITLE="${{ github.event.issue.title }}"
           BODY="${{ github.event.issue.body }}"
-          BODY=$(echo "$BODY" | sed 's/`/\\`/g')
-          for label in ${EXISTING_LABELS[@]}; do
+          echo "test"
+          for label in "${EXISTING_LABELS[@]}"; do
               label_name="${label##*:}" # Extracting latter part of label after ":"
               if [[ "$label" == *":"* ]]; then
                   if grep -q "$label_name" <<< "$TITLE" || grep -q "$label_name" <<< "$BODY"; then
